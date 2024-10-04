@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "@/components/NavBar";
+import { Providers } from './Providers';
 import SessionAuthProvider from "@/context/SessionAuthProvider";
 import { NextIntlClientProvider } from 'next-intl';
 import {  Inter} from "next/font/google"
@@ -27,12 +28,14 @@ export default async function RootLayout({
     <html lang={locale}>
       <body
         className={inter.className}
-      ><NextIntlClientProvider messages={messages}>
+      > <Providers>
+        <NextIntlClientProvider messages={messages}>
         <SessionAuthProvider>
             <Navbar />
             {children}
           </SessionAuthProvider>
         </NextIntlClientProvider>
+        </Providers>
           <ToastContainer />
       </body>
     </html>

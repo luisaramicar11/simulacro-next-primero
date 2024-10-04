@@ -57,11 +57,12 @@ const Navbar = () => {
     <NavbarContainer>
       <Container>
         <NavLink href="/">{traduction('home')}</NavLink>
-        <NavLink href="/cart">🛒 Carrito ({cartItems.length})</NavLink>
+        
         {session?.user ? (
           <>
             <NavLink href="/dashboard">Dashboard</NavLink>
             <SignoutButton onClick={() => signOut()}>Signout</SignoutButton>
+            <NavLink href="/cart">🛒 Carrito ({cartItems.length})</NavLink>
             <SelectLanguage />
           </>
         ) : (
